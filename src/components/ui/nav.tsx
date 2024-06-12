@@ -10,7 +10,7 @@ import { buttonVariants } from "@/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
-  TooltipTrigger
+  TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import { usePathname } from "next/navigation";
@@ -44,11 +44,11 @@ export function Nav({ links, isCollapsed }: NavProps) {
                     className={cn(
                       buttonVariants({
                         variant: link.href === pathName ? "default" : "ghost",
-                        size: "icon"
+                        size: "icon",
                       }),
-                      "h-9 w-9",
+                      "h-9 w-9 ",
                       link.variant === "default" &&
-                        "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
+                        "dark:bg-black dark:text-white  dark:hover:bg-black  dark:hover:text-white"
                     )}
                   >
                     <link.icon className="h-4 w-4" />
@@ -57,13 +57,12 @@ export function Nav({ links, isCollapsed }: NavProps) {
                 </TooltipTrigger>
                 <TooltipContent
                   side="right"
-                  className="flex items-center gap-4"
+                  className="flex items-center gap-4 
+"
                 >
                   {link.title}
                   {link.label && (
-                    <span className="ml-auto text-muted-foreground">
-                      {link.label}
-                    </span>
+                    <span className="ml-auto text-white">{link.label}</span>
                   )}
                 </TooltipContent>
               </Tooltip>
@@ -74,21 +73,20 @@ export function Nav({ links, isCollapsed }: NavProps) {
                 className={cn(
                   buttonVariants({
                     variant: link.href === pathName ? "default" : "ghost",
-                    size: "sm"
+                    size: "sm",
                   }),
                   link.variant === "default" &&
-                    "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
+                    "dark:bg-white dark:text-black text-black dark:hover:bg-white dark:hover:text-black",
                   "justify-start"
                 )}
               >
-                <link.icon className="mr-2 h-4 w-4" />
+                <link.icon className="mr-2 h-4 w-4 text-black" />
                 {link.title}
                 {link.label && (
                   <span
                     className={cn(
                       "ml-auto",
-                      link.variant === "default" &&
-                        "text-background dark:text-white"
+                      link.variant === "default" && "text-black dark:text-white"
                     )}
                   >
                     {link.label}
