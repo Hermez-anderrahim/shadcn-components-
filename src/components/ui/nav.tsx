@@ -46,7 +46,7 @@ export function Nav({ links, isCollapsed }: NavProps) {
                         variant: link.href === pathName ? "default" : "ghost",
                         size: "icon",
                       }),
-                      "h-9 w-9 text-white hover:text-black active:text-black",
+                      "h-9 w-9 focus:text-black active:text-black",
                       link.variant === "default" &&
                         "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
                     )}
@@ -57,7 +57,7 @@ export function Nav({ links, isCollapsed }: NavProps) {
                 </TooltipTrigger>
                 <TooltipContent
                   side="right"
-                  className="flex items-center gap-4 "
+                  className="flex items-center gap-4"
                 >
                   {link.title}
                   {link.label && (
@@ -76,19 +76,19 @@ export function Nav({ links, isCollapsed }: NavProps) {
                     variant: link.href === pathName ? "default" : "ghost",
                     size: "sm",
                   }),
-                  "text-white hover:text-black active:text-black",
                   link.variant === "default" &&
-                    "dark:bg-muted  dark:text-white dark:hover:bg-muted dark:hover:text-white",
+                    "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white focus:text-black active:text-black",
                   "justify-start"
                 )}
               >
-                <link.icon className="mr-2 h-4 w-4 " />
+                <link.icon className="mr-2 h-4 w-4" />
                 {link.title}
                 {link.label && (
                   <span
                     className={cn(
                       "ml-auto",
-                      link.variant === "default" && "text-black"
+                      link.variant === "default" &&
+                        "text-background dark:text-white focus:text-black active:text-black"
                     )}
                   >
                     {link.label}
